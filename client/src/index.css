@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Ultra-Premium Award-Winning Design System */
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700;900&family=General+Sans:wght@300;400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  /* Ultra-Premium Dark Mode Color Palette */
+  --background: #030303;
+  --foreground: #ffffff;
+  
+  --primary: #8b5cf6; /* Violet */
+  --primary-foreground: #ffffff;
+  
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  
+  --popover: #0a0a0a;
+  --popover-foreground: #ffffff;
+  
+  --secondary: #f59e0b; /* Amber */
+  --secondary-foreground: #000000;
+  
+  --muted: #171717;
+  --muted-foreground: #a3a3a3;
+  
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: #8b5cf6;
+  
+  --radius: 1rem;
+}
+
+.dark {
+  --background: #030303;
+  --foreground: #ffffff;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --popover: #0a0a0a;
+  --popover-foreground: #ffffff;
+  --secondary: #f59e0b;
+  --secondary-foreground: #000000;
+  --muted: #171717;
+  --muted-foreground: #a3a3a3;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: #8b5cf6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30;
+    font-family: 'General Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  
+  h1 { @apply text-5xl md:text-7xl lg:text-[6rem] leading-[0.95]; }
+  h2 { @apply text-4xl md:text-6xl lg:text-[4.5rem] leading-[1]; }
+  h3 { @apply text-2xl md:text-4xl; }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  
+  /* Ultra Premium Components */
+  .gradient-text {
+    background: linear-gradient(135deg, #c4b5fd 0%, #fde68a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .premium-shadow {
+    box-shadow: 0 0 50px rgba(139, 92, 246, 0.15);
+  }
+  
+  .premium-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .section-divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    margin: 4rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      max-width: 1600px;
+    }
+  }
+}
